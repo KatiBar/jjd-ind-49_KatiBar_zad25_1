@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous">
+<link rel="stylesheet" href="../static/main.css" th:href="@{main.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>Archiwum zadań</title>
+</head>
+<body>
+    <main layout:fragment="content">
+        <h2>Archiwum zadań:</h2>
+        <div class="list-group" th:each="done: ${archives}">
+            <div th:if="|${done.getEndTime()}|">
+                <a class="list-group-item list-group-item-action active" aria-current="true">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1" th:text="|${done.getName()}|">Tytuł zadania</h5>
+                        <small th:text="Zadanie +|${done.getId()}|"></small>
+                    </div>
+                    <p class="mb-1" th:text="|${done.getDescription()}|">Treść zadania</p>
+                    <small th:unless="|${done.getDeadline()}|">Zadanie bez ograniczonego czasu wykonania</small>
+                    <small th:if="|${done.getDeadline()}|" th:text="|${done.toString()}|"></small>
+                </a>
+            </div>
+            <div class="notFinishedTask" th:unless="|${done.getEndTime()}|">
+                <a class="list-group-item list-group-item-action active" aria-current="true">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1" th:text="|${done.getName()}|" style="color:red;">Tytuł zadania</h5>
+                        <small th:text="Zadanie +|${done.getId()}|" style="color:red;"></small>
+                    </div>
+                    <p class="mb-1" th:text="|${done.getDescription()}|" style="color:red;">Treść zadania</p>
+                    <small th:unless="|${done.getDeadline()}|" style="color:red;">Zadanie bez ograniczonego czasu wykonania</small>
+                    <small th:if="|${done.getDeadline()}|" th:text="|${done.toString()}|" style="color:red;"></small>
+                </a>
+            </div>
+
+        </div>
+<!--        <p th:if="|${done.getEndTime()}|" style="color:black;" th:text="|${done.toString()}|"></p>-->
+<!--        <p th:unless="|${done.getEndTime()}|" style="color:red;" th:text="|${done.toString()}|"></p>-->
+    </main>
+</body>
+</html>

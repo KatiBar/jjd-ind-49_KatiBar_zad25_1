@@ -1,0 +1,56 @@
+body,
+footer {
+    background-color: lightgray;
+}
+
+main,
+header,
+footer,
+form,
+.okClass,
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.container,
+input,
+form,
+.okClass,
+.list-group {
+    margin-top: 10px;
+    margin-bottom: 4px;
+    width: 60%;
+}
+
+.col-12 {
+    background-color: lightgray;
+    border-width: 2px;
+    border-color: deepskyblue;
+    border-radius: 5px;
+}
+
+label {
+    font-size: 20px;
+}
+
+.headerTitle {
+    font-size: 30px;
+    font-weight: bold;
+    width: 60%;
+    background-color: deepskyblue;
+}
+
+.list-group-item {
+    background-color: lightgray;
+    border-width: 2px;
+    border-color: deepskyblue;
+    border-radius: 5px;
+}
+
+.notFinishedTask {
+    color: red;
+}

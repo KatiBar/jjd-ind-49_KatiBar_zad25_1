@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous">
+<link rel="stylesheet" href="../static/main.css" th:href="@{main.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona główna</title>
+</head>
+<body>
+    <main layout:fragment="content">
+        <div class="container">
+            <h3>Witaj w aplikacji,</h3>
+            <h3>która pomoże zorganizować Twój czas.</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">- dodawaj zadania do wykonania,</li>
+                <li class="list-group-item">- możesz oznaczać je jako wykonane,</li>
+                <li class="list-group-item">- możesz dodać termin, do kiedy zadanie ma zostać wykonane</li>
+                <li class="list-group-item">- niewykonane zadania, których termin minął, wyświatlane są kolorem czerwonym</li>
+                <li class="list-group-item">- zadania do wykonania, które nie są zrealizowane, sortowane są po ich terminie wykonania</li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>

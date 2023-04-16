@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous">
+<link rel="stylesheet" href="../static/main.css" th:href="@{main.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <h2>Lista zadań do zrobienia:</h2>
+
+    <div class="list-group" th:each="task: ${toDoTasks}">
+        <a class="list-group-item list-group-item-action active" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1" th:text="|${task.getName()}|">Tytuł zadania</h5>
+                    <small th:text="Zadanie +|${task.getId()}|"></small>
+                </div>
+                <p class="mb-1" th:text="|${task.getDescription()}|">Treść zadania</p>
+                <small th:unless="|${task.getDeadline()}|">Zadanie bez ograniczonego czasu wykonania</small>
+                <small th:if="|${task.getDeadline()}|" th:text="|${task.toString()}|"></small>
+            </a>
+    </div>
+</main>
+</body>
+</html>
