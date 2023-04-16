@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous">
+<link rel="stylesheet" href="../static/main.css" th:href="@{main.css}">
+<head>
+  <meta charset="UTF-8">
+  <title>Dodaj nowe zadanie</title>
+</head>
+<body>
+  <main layout:fragment="content">
+    <h2>Dodaj nowe zadanie do listy zadań</h2>
+
+    <form class="row g-3"  th:method="post" th:action="|/addTask|">
+
+      <div class="col-12">
+        <label for="inputName" class="form-label">Tytuł</label>
+        <input type="text" class="form-control" id="inputName" name="name" placeholder="Wpisz tytuł zadania..." required>
+        <div class="invalid-feedback">
+          Wpisz tytuł zadania.
+        </div>
+      </div>
+
+      <div class="col-12">
+        <label for="inputDescription" class="form-label">Treść</label>
+        <textarea type="text" class="form-control" id="inputDescription" name="description" placeholder="Wpisz opis zadania..." required></textarea>
+        <div class="invalid-feedback">
+          Wpisz opis zadania.
+        </div>
+      </div>
+
+      <div class="col-12">
+        <label for="inputDeadline" class="form-label">Wprowadź deadline (yyyy-MM-dd hh:mm)</label>
+        <input type="text" class="form-control" id="inputDeadline" name="deadline" placeholder="2023-04-04 15:00">
+      </div>
+
+      <div class="col-12">
+        <label for="validationCategory" class="form-label">Kategoria</label>
+          <select class="form-select" id="validationCategory" name="category" aria-label="select example" required>
+            <option value="">Wybierz...</option>
+            <option th:each="category :${categories}" th:value="${category}" th:text="${category.pl}">
+            </option>
+          </select>
+          <div class="invalid-feedback">Wybierz kategorię zadania.</div>
+      </div>
+
+      <div class="col-12">
+        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+          <input type="checkbox" class="btn-check" name="finished" id="btncheck1" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btncheck1">Zakończone</label>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Dodaj</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

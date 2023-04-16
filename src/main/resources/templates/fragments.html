@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:fragment="header">
+  <div class="headerTitle">
+    <div>
+      <p>Lista zadań do zrobienia</p>
+      <p>Zorganizuj swój czas</p>
+    </div>
+
+  </div>
+
+  <nav class="nav nav-pills flex-column flex-sm-row">
+    <a class="flex-sm-fill text-sm-center nav-link" href="/home">Strona główna</a>
+    <a class="flex-sm-fill text-sm-center nav-link" href="/addTask">Dodaj nowe zadanie</a>
+    <a class="flex-sm-fill text-sm-center nav-link" href="/showToDo">Lista zadań do wykonania</a>
+    <a class="flex-sm-fill text-sm-center nav-link" href="/showArchives">Zadania zrealizowane</a>
+  </nav>
+</header>
+
+<footer th:fragment="footer">
+  <p class="footer">Dziękuję, że korzystasz z mojej aplikacji.</p>
+</footer>
+</body>
+</html>

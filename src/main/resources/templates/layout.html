@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+        crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/main.css" th:href="@{main.css}">
+</head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+<main layout:fragment="content">
+
+</main>
+
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>
